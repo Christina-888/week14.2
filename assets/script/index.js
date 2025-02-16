@@ -43,22 +43,60 @@ const directors = [
   },
 ];
 
-const directorsContainer = document.querySelector('.container');
+const directorsContainer = document.querySelector('.container__directors');
 
 directors.forEach((director) => {
+  //Создаю карточки для режиссёров:
+  const card = document.createElement('div');
+
+  //Добавляю имя:
   const directorsName = document.createElement('div');
   directorsName.textContent = `${director.name}`;
-  directorsContainer.appendChild(directorsName);
+  card.appendChild(directorsName);
 
+  //Добавляю карьеру:
   const directorsCareer = document.createElement('div');
   directorsCareer.textContent = `${director.career}`;
-  directorsContainer.appendChild(directorsCareer);
+  card.appendChild(directorsCareer);
 
+  //Добавляю фильмы:
   const link = document.createElement('a');
+  //и атрибуты для линка:
   link.setAttribute('href', director.films);
   link.setAttribute('target', '_blank');
+
   link.textContent = 'Фильмография';
-  directorsContainer.appendChild(link); 
+  card.appendChild(link);
+  
+  //Карточки - в контейнер:
+  directorsContainer.appendChild(card);
+
+  //Стилизую:
+  card.style.margin = "3%";
+  card.style.backgroundColor = "wheat";
+  card.style.padding = "2% 0 2% 2%";
+  directorsName.style.fontSize = "2vw";
+  directorsName.style.fontWeight = "bold";
+  link.style.color = "blue";
 }); 
+
+//Создаю массив для фильмов:
+const topFilmsList = [];
+
+directors.forEach((director) => {
+  topFilmsList.push(director.top_rated_film);
+});
+
+const directorFilms = document.querySelector('.films');
+
+topFilmsList.forEach((film) => {
+  const filmName = document.createElement('div');
+  filmName.textContent = film;
+  directorFilms.appendChild(filmName);
+
+  //Стилизую:
+  filmName.style.marginLeft = "3%";
+  filmName.style.fontStyle = "italic";
+});
 
 

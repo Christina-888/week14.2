@@ -3,9 +3,10 @@ body {
   background-color: rgb(101, 187, 221);
 }
 
-/*
-.container {
-  background-color: wheat;
-  margin: 2%;
+.title {
+  margin-left: 3%;
 }
-*/
+
+.subtitle {
+  margin-left: 3%;
+}
